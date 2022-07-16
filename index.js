@@ -15,7 +15,7 @@ const dbConnectionOptions = {
 const app = express();
 const cors = require("cors");
 const corsOpts = {
-  origin: "http://localhost:3000",
+  origin: "https://mongo-profiled-notes.netlify.app",
   credentials: true,
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
