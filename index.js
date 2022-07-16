@@ -42,6 +42,7 @@ app.use(
     }),
     cookie: {
       // 1000ms * 60sec * 60min * 24hr = 1day
+      httpOnly:false,
       maxAge: 1000 * 60 * 60 * 24 * 15, // 2 weeks
     },
   })
