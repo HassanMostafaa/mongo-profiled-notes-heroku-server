@@ -13,8 +13,15 @@ const dbConnectionOptions = {
 };
 
 const app = express();
-
-//middleware
+const cors = require("cors");
+const corsOpts = {
+  origin: "http://localhost:3000",
+  credentials: true,
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+  exposedHeaders: ["Content-Type"],
+};
+app.use(cors(corsOpts));
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
@@ -34,8 +41,8 @@ app.use(
       //collection: "active_sessions",
     }),
     cookie: {
-      // maxAge: 1000 * 60 * 60 * 24,  1000ms * 60sec * 60min * 24hr = 1day
-      maxAge: 1000 * 60 * 60, // 1day
+      // 1000ms * 60sec * 60min * 24hr = 1day
+      maxAge: 1000 * 60 * 60 * 24 * 15, // 2 weeks
     },
   })
 );
